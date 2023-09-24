@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<flow name="post-demo-db-postFlow" doc:id="d50a1c23-fc14-4578-828b-6ee7cd0fa50b" >
+		<http:listener doc:name="Listener" doc:id="cdb577a5-9922-4e84-bb7e-a440f6b85a17" config-ref="HTTP_Listener_config1" path="/crudoperations" allowedMethods="POST"/>
+		<db:insert doc:name="Insert" doc:id="e7f10952-fc8a-40a3-bca4-115783ec37fb" config-ref="Database_Config1">
+			<db:sql ><![CDATA[insert into company (Id, Name) values (:id, :name)]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	id: payload.id,
+	name: payload.name
+}]]]></db:input-parameters>
+		</db:insert>
+		<ee:transform doc:name="Transform Message" doc:id="f5e9872e-bc93-4f3e-8eac-26bff9b67225" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
