@@ -45,7 +45,8 @@ O componente "Update" em sistemas de gerenciamento de banco de dados (DBMS) é u
 
 - Componente "POST" (Inserir)
    O componente "POST" em sistemas de gerenciamento de banco de dados (DBMS) é uma operação que permite inserir novos registros em uma tabela. Ele é fundamental para adicionar novos dados ao banco de dados, criando novos registros com informações específicas. O componente "POST" requer dados de entrada que serão inseridos na tabela, seguindo o esquema definido. É uma operação essencial para a expansão e atualização dos dados em um banco de dados.
-   ![Post](https://github.com/benetesla/Dart/assets/78994881/2d34b591-e282-4d27-9982-cd5769276094)
+  
+![Post](https://github.com/benetesla/Dart/assets/78994881/2d34b591-e282-4d27-9982-cd5769276094)
 
 - Componente "DELETE" (Excluir):
    O componente "DELETE" em sistemas de gerenciamento de banco de dados (DBMS) é uma operação que permite remover registros existentes de uma tabela. Ele desempenha um papel crítico na manutenção do banco de dados, permitindo a exclusão de informações obsoletas, incorretas ou não mais necessárias. O componente "DELETE" requer uma consulta que identifique os registros a serem removidos com base em critérios específicos. É uma operação importante para garantir a eficiência e a organização dos dados armazenados.
